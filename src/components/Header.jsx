@@ -5,13 +5,30 @@ import { MdShoppingCart } from "react-icons/md";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { app } from "../firebase.config";
+
 const Header = () => {
+
+  const firebaseAuth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+
+  const login = async () => {
+    const response = await signInWithPopup(firebaseAuth , provider);
+    console.log(response);
+  }
+
   return (
     <header className="fixed z-50 w-screen p-4 px-16">
       {/* desktop and tablet */}
       <div className="hidden md:flex w-full h-full items-center justify-between">
-        <Link to={'/'}className="flex items-center gap-2">
-          <motion.img src={Logo} alt="logo" className="w-12 object-cover" whileTap={{scale: 0.6}}/>
+        <Link to={"/"} className="flex items-center gap-2">
+          <motion.img
+            src={Logo}
+            alt="logo"
+            className="w-12 object-cover"
+            whileTap={{ scale: 0.6 }}
+          />
           <p className="text-headingColor text-xl font-bold">FP Delivery</p>
         </Link>
         <div className="flex items-center gap-8">
@@ -38,12 +55,15 @@ const Header = () => {
               <p className="text-xs text-white font-semibold">2</p>
             </div>
           </div>
-          <motion.img
-            whileTap={{ scale: 0.6 }}
-            src={User}
-            alt="user_image"
-            className="w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer"
-          />
+          <div className="relative">
+            <motion.img
+              whileTap={{ scale: 0.6 }}
+              src={User}
+              alt="user_image"
+              className="w-10 min-w-[40px] h-10 min-h-[40px] drop-shadow-xl cursor-pointer"
+              onClick={login}
+            />
+          </div>
         </div>
       </div>
       {/* mobile */}
