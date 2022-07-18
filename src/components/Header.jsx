@@ -54,7 +54,7 @@ const Header = () => {
             className="w-12 object-cover"
             whileTap={{ scale: 0.6 }}
           />
-          <p className="text-headingColor text-xl font-bold">FP Delivery</p>
+          <p className="text-[#023e8a] text-xl font-bold">FP Delivery</p>
         </Link>
         <div className="flex items-center gap-8">
           <motion.ul
@@ -63,16 +63,16 @@ const Header = () => {
             exit={{ opacity: 0, x: 200 }}
             className="flex items-center gap-8"
           >
-            <li className="text-base text-textColor hover:text-black duration-100 transition-all ease-in-out cursor-pointer ">
+            <li className="text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
               <Link to={"/"}>Home</Link>
             </li>
-            <li className="text-base text-textColor hover:text-black duration-100 transition-all ease-in-out cursor-pointer ">
+            <li className="text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
               Menu
             </li>
-            <li className="text-base text-textColor hover:text-black duration-100 transition-all ease-in-out cursor-pointer ">
+            <li className="text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
               About Us
             </li>
-            <li className="text-base text-textColor hover:text-black duration-100 transition-all ease-in-out cursor-pointer ">
+            <li className="text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
               Contact
             </li>
           </motion.ul>
@@ -81,7 +81,7 @@ const Header = () => {
               size={24}
               className="text-textColor cursor-pointer"
             />
-            <div className="absolute -top-2 -right-5 w-5 h-5 bg-cartNumBg rounded-full flex items-center justify-center">
+            <div className="absolute -top-2 -right-5 w-5 h-5 bg-[#023e8a] rounded-full flex items-center justify-center">
               <p className="text-xs text-white font-semibold">2</p>
             </div>
           </div>
@@ -103,14 +103,14 @@ const Header = () => {
               >
                 {user && user.email === "francopacheco.dev@gmail.com" && (
                   <Link to={"/createItem"}>
-                    <p className="px-4 py-2 flex items-center gap-3 text-base text-textColor hover:text-black duration-100 transition-all ease-in-out cursor-pointer">
+                    <p className="px-4 py-2 flex items-center gap-3 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer">
                       New Item <MdAdd size={16} />
                     </p>
                   </Link>
                 )}
                 <p
                   onClick={logout}
-                  className="px-4 py-2 flex items-center gap-3 text-base text-textColor hover:text-black duration-100 transition-all ease-in-out cursor-pointer"
+                  className="px-4 py-2 flex items-center gap-3 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer"
                 >
                   Log Out <MdLogout size={16} />
                 </p>
@@ -123,7 +123,7 @@ const Header = () => {
       <div className="flex items-center justify-between md:hidden w-full h-full">
         <div className="relative flex justify-center items-center">
           <MdShoppingCart size={26} className="text-textColor cursor-pointer" />
-          <div className="absolute -top-2 -right-5 w-5 h-5 bg-cartNumBg rounded-full flex items-center justify-center">
+          <div className="absolute -top-2 -right-5 w-5 h-5 bg-[#023e8a] rounded-full flex items-center justify-center">
             <p className="text-xs text-white font-semibold">2</p>
           </div>
         </div>
@@ -134,7 +134,7 @@ const Header = () => {
             className="w-12 object-cover"
             whileTap={{ scale: 0.6 }}
           />
-          <p className="text-headingColor text-xl font-bold">FP Delivery</p>
+          <p className="text-[#023e8a] text-xl font-bold">FP Delivery</p>
         </Link>
         <div className="relative">
           <motion.img
@@ -154,30 +154,30 @@ const Header = () => {
             >
               {user && user.email === "francopacheco.dev@gmail.com" && (
                 <Link to={"/createItem"}>
-                  <p className="rounded-md px-4 py-2 justify-center bg-slate-200 flex items-center gap-3 text-base text-textColor hover:text-black duration-100 transition-all ease-in-out cursor-pointer">
+                  <p className="rounded-md px-4 py-2 justify-center bg-slate-200 flex items-center gap-3 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer">
                     New Item <MdAdd size={16} />
                   </p>
                 </Link>
               )}
 
               <ul className="flex flex-col">
-                <li className=" px-4 py-2 text-base text-textColor hover:text-black duration-100 transition-all ease-in-out cursor-pointer ">
+                <li className=" px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
                   <Link to={"/"}>Home</Link>
                 </li>
-                <li className="px-4 py-2 text-base text-textColor hover:text-black duration-100 transition-all ease-in-out cursor-pointer ">
+                <li className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
                   Menu
                 </li>
-                <li className="px-4 py-2 text-base text-textColor hover:text-black duration-100 transition-all ease-in-out cursor-pointer ">
+                <li className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
                   About Us
                 </li>
-                <li className="px-4 py-2 text-base text-textColor hover:text-black duration-100 transition-all ease-in-out cursor-pointer ">
+                <li className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
                   Contact
                 </li>
               </ul>
 
               <p
                 onClick={logout}
-                className="rounded-md px-4 py-2 flex items-center justify-center bg-slate-200 gap-3 text-base text-textColor hover:text-black duration-100 transition-all ease-in-out cursor-pointer"
+                className="rounded-md px-4 py-2 flex items-center justify-center bg-slate-200 gap-3 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer"
               >
                 Log Out <MdLogout size={16} />
               </p>
