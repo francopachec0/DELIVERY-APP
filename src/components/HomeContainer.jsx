@@ -3,7 +3,7 @@ import DeliveryIMG from "../assets/delivery.png";
 
 const HomeContainer = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-2 w-full" id="home">
       <div className="py-2 flex-1 flex flex-col items-start md:items-center justify-center gap-6">
         <div className="flex items-center gap-2 justify-center px-4 py-1 rounded-full bg-[#023e8a]">
           <p className="text-base font-semibold text-white">Bike Delivery</p>
@@ -30,8 +30,8 @@ const HomeContainer = () => {
           ¡Order Now!
         </button>
       </div>
-      <div className="py-2 flex-1"></div>
-    </div>
+      <div className="py-2 flex-1 bg-slate-600"></div>
+    </section>
   )
 };
 
