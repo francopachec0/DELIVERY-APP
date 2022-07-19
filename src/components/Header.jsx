@@ -64,16 +64,16 @@ const Header = () => {
             className="flex items-center gap-8"
           >
             <li className="text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
-              <Link to={"/"}>Home</Link>
+              <Link to={"/"}>Inicio</Link>
             </li>
             <li className="text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
-              Menu
+              Menú
             </li>
             <li className="text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
-              About Us
+              Sobre Nosotros
             </li>
             <li className="text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
-              Contact
+              Contacto
             </li>
           </motion.ul>
           <div className="relative flex justify-center items-center">
@@ -104,7 +104,7 @@ const Header = () => {
                 {user && user.email === "francopacheco.dev@gmail.com" && (
                   <Link to={"/createItem"}>
                     <p className="px-4 py-2 flex items-center gap-3 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer">
-                      New Item <MdAdd size={16} />
+                      Nuevo Producto <MdAdd size={30} />
                     </p>
                   </Link>
                 )}
@@ -112,7 +112,7 @@ const Header = () => {
                   onClick={logout}
                   className="px-4 py-2 flex items-center gap-3 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer"
                 >
-                  Log Out <MdLogout size={16} />
+                  Cerrar Sesión <MdLogout size={30} />
                 </p>
               </motion.div>
             )}
@@ -155,23 +155,23 @@ const Header = () => {
               {user && user.email === "francopacheco.dev@gmail.com" && (
                 <Link to={"/createItem"}>
                   <p className="rounded-md px-4 py-2 justify-center bg-slate-200 flex items-center gap-3 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer">
-                    New Item <MdAdd size={16} />
+                    Nuevo Producto <MdAdd size={20} />
                   </p>
                 </Link>
               )}
 
               <ul className="flex flex-col">
                 <li className=" px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
-                  <Link to={"/"}>Home</Link>
+                  <Link to={"/"}>Inicio</Link>
                 </li>
                 <li className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
-                  Menu
+                  Menú
                 </li>
                 <li className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
-                  About Us
+                  Sobre Nosotros
                 </li>
                 <li className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
-                  Contact
+                  Contacto
                 </li>
               </ul>
 
@@ -179,7 +179,7 @@ const Header = () => {
                 onClick={logout}
                 className="rounded-md px-4 py-2 flex items-center justify-center bg-slate-200 gap-3 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer"
               >
-                Log Out <MdLogout size={16} />
+                Cerrar Sesión <MdLogout size={20} />
               </p>
             </motion.div>
           )}
