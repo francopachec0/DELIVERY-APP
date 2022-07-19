@@ -9,11 +9,11 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    overflow-x: hidden;
 }
 
 html, body {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 @tailwind base;
