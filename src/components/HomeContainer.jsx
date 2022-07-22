@@ -1,6 +1,7 @@
 import React from "react";
 import DeliveryIMG from "../assets/delivery.png";
 import HeroBg from "../assets/heroBg.png";
+import { FoodList } from "../utils/data";
 
 const HomeContainer = () => {
   return (
@@ -34,13 +35,29 @@ const HomeContainer = () => {
           ¡Pedí Ahora!
         </button>
       </div>
-      <div className="py-2 flex-1 flex items-center">
+      <div className="py-2 flex-1 flex items-center relative">
         <img
           src={HeroBg}
           alt="background"
           className="ml-auto h-420 w-full lg:h-650 lg:w-auto"
         />
-        <div className="w-full h-full absolute flex items-center justify-center"></div>
+        <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center flex-wrap lg:px-16 py-4 gap-4">
+          {FoodList &&
+            FoodList.map((food, i) => (
+              <div
+                key={i}
+                className="lg:w-140  lg:h-140 lg:min-h-[140px]  p-4 bg-[#e9ecef] backdrop-blur-md drop-shadow-lg rounded-2xl flex flex-col items-center justify-center"
+              >
+                <img src={food.image} alt="food" className="w-20 -mt-10 lg:w-40 lg:-mt-20" />
+                <p className="text-base lg:text-xl font-semibold text-textColor mt-2 lg:mt-4">
+                  {food.name}
+                </p>
+                <p className="text-sm font-semibold text-headingColor">
+                  <span className="text-xs text-[#023e8a]">$</span> {food.price}
+                </p>
+              </div>
+            ))}
+        </div>
       </div>
     </section>
   );
