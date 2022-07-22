@@ -12,19 +12,19 @@ export const FoodList = [
   },
   {
     id: 2,
-    name: "Lomito",
+    name: "Lomito Especial",
     price: 899,
     image: Food2,
   },
   {
     id: 3,
-    name: "Pizza",
+    name: "Pizza Pepperoni",
     price: 749,
     image: Food3,
   },
   {
     id: 4,
-    name: "Tacos",
+    name: "Tacos Mixtos",
     price: 799,
     image: Food4,
   },
