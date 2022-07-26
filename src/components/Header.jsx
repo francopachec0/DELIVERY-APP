@@ -103,7 +103,7 @@ const Header = () => {
               >
                 {user && user.email === "francopacheco.dev@gmail.com" && (
                   <Link to={"/createItem"}>
-                    <p className="px-4 py-2 flex items-center gap-3 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer">
+                    <p className="px-4 py-2 flex items-center gap-3 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer" onClick={() => setIsMenu(false)}>
                       Nuevo Producto <MdAdd size={30} />
                     </p>
                   </Link>
@@ -154,23 +154,23 @@ const Header = () => {
             >
               {user && user.email === "francopacheco.dev@gmail.com" && (
                 <Link to={"/createItem"}>
-                  <p className="rounded-md px-4 py-2 justify-center bg-slate-200 flex items-center gap-3 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer">
+                  <p className="rounded-md px-4 py-2 justify-center bg-slate-200 flex items-center gap-3 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer" onClick={() => setIsMenu(false)}>
                     Nuevo Producto <MdAdd size={20} />
                   </p>
                 </Link>
               )}
 
               <ul className="flex flex-col">
-                <li className=" px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
+                <li className=" px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer " onClick={() => setIsMenu(false)}>
                   <Link to={"/"}>Inicio</Link>
                 </li>
-                <li className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
+                <li className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer " onClick={() => setIsMenu(false)}>
                   Menú
                 </li>
-                <li className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
+                <li className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer " onClick={() => setIsMenu(false)}>
                   Sobre Nosotros
                 </li>
-                <li className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
+                <li className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer " onClick={() => setIsMenu(false)}>
                   Contacto
                 </li>
               </ul>
