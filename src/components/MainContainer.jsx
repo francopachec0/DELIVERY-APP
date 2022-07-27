@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import RowContainer from "./RowContainer";
 import { useStateValue } from "../context/StateProvider";
+import MenuContainer from "./MenuContainer";
 
 const MainContainer = () => {
   const [{ foodItems }, dispatch] = useStateValue();
@@ -43,6 +44,8 @@ const MainContainer = () => {
           data={foodItems?.filter((i) => i.category === "frutas")}
         />
       </section>
+
+      <MenuContainer />
     </div>
   );
 };
