@@ -10,7 +10,9 @@ import { categories } from "../utils/data";
 import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from "firebase/storage";
 import { storage } from "../firebase.config";
 import Loader from "./Loader";
-import { saveItem } from "../utils/FirebaseFuncions";
+import { getAllFoodItems, saveItem } from "../utils/FirebaseFuncions";
+import { useStateValue } from "../context/StateProvider";
+import { actionType } from "../context/reducer";
 
 const CreateItem = () => {
   const [name, setName] = useState("");
@@ -21,6 +23,8 @@ const CreateItem = () => {
   const [alertStatus, setAlertStatus] = useState("danger");
   const [msg, setMsg] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+
+  const [{ foodItems }, dispatch] = useStateValue();
 
   const uploadImage = (e) => {
     setIsLoading(true);
@@ -117,6 +121,7 @@ const CreateItem = () => {
         setIsLoading(false);
       }, 4000);
     }
+    fetchData();
   }
 
   const clearData = () => {
@@ -126,6 +131,15 @@ const CreateItem = () => {
     setCategory("Elegí una categoría");
   };
 
+  const fetchData = async () => {
+    await getAllFoodItems().then((data) => {
+      //console.log(data);
+      dispatch({
+        type: actionType.SET_FOOD_ITEMS,
+        foodItems: data,
+      });
+    });
+  };
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center">
