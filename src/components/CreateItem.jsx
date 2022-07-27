@@ -1,8 +1,16 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
-import { MdFastfood, MdCloudUpload, MdDelete } from "react-icons/md";
+import {
+  MdFastfood,
+  MdCloudUpload,
+  MdDelete,
+  MdAttachMoney,
+} from "react-icons/md";
 import { categories } from "../utils/data";
+import { ref, uploadBytesResumable, getDownloadURL, deleteObject } from "firebase/storage";
+import { storage } from "../firebase.config";
 import Loader from "./Loader";
+import { saveItem } from "../utils/FirebaseFuncions";
 
 const CreateItem = () => {
   const [name, setName] = useState("");
@@ -14,9 +22,110 @@ const CreateItem = () => {
   const [msg, setMsg] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const uploadImage = () => {};
+  const uploadImage = (e) => {
+    setIsLoading(true);
+    let imageFile = e.target.files[0];
+    let storageFirebase = ref(storage, `Images/${Date.now()}-${imageFile.name}`);
+    const uploadTask = uploadBytesResumable(storageFirebase, imageFile);
 
-  const deleteImage = () => {};
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const uploadProgress =
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      },
+      (error) => {
+        console.log(error);
+        setFields(true);
+        setMsg("Ups ocurrio un error : Intenta de nuevo ☹️");
+        setAlertStatus("danger");
+        setTimeout(() => {
+          setFields(false);
+          setIsLoading(false);
+        }, 4000);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          setImage(downloadURL);
+          setIsLoading(false);
+          setFields(true);
+          setMsg("Imagen Subida Correctamente 😉");
+          setAlertStatus("success");
+          setTimeout(() => {
+            setFields(false);
+          }, 4000);
+        });
+      }
+    );
+  };
+
+
+  
+
+  const deleteImage = () => {
+    setIsLoading(true);
+    const deleteRef = ref(storage, image);
+    deleteObject(deleteRef).then(() => {
+      setImage(null);
+      setIsLoading(false);
+      setFields(true);
+      setMsg("Imagen borrada correctamente 🗑️");
+      setAlertStatus("success");
+      setTimeout(() => {
+        setFields(false);
+      }, 4000);
+    });
+  };
+
+  const saveDetails = () => {
+    setIsLoading(true);
+    try {
+      if (!name || !image || !price || !category) {
+        setFields(true);
+        setMsg("Campos requeridos NO PUEDEN ESTAR VACIOS");
+        setAlertStatus("danger");
+        setTimeout(() => {
+          setFields(false);
+          setIsLoading(false);
+        }, 4000);
+      } else {
+        const data = {
+          id: `${Date.now()}`,
+          name: name,
+          imageURL: image,
+          category: category,
+          qty: 1,
+          price: price,
+        };
+        saveItem(data);
+        setIsLoading(false);
+        setFields(true);
+        setMsg("Datos subidos correctamente 😉");
+        setAlertStatus("success");
+        clearData();
+        setTimeout(() => {
+          setFields(false);
+        }, 4000);
+      }
+    } catch (error) {
+      console.log(error);
+      setFields(true);
+      setMsg("Ups ocurrio un error : Intenta de nuevo ☹️");
+      setAlertStatus("danger");
+      setTimeout(() => {
+        setFields(false);
+        setIsLoading(false);
+      }, 4000);
+    }
+  }
+
+  const clearData = () => {
+    setName("");
+    setImage(null);
+    setPrice("");
+    setCategory("Elegí una categoría");
+  };
+
 
   return (
     <div className="w-full min-h-screen flex items-center justify-center">
@@ -43,7 +152,7 @@ const CreateItem = () => {
             required
             value={name}
             placeholder="Nombre del Producto"
-            className="w-full h-full bg-transparent font-semibold outline-none border-none text-textColor placeholder:text-gray-400"
+            className="w-full h-full bg-transparent outline-none border-none text-textColor placeholder:text-gray-400"
           />
         </div>
         <div className="w-full">
@@ -109,6 +218,26 @@ const CreateItem = () => {
               )}
             </>
           )}
+        </div>
+        <div className="w-full flex flex-col md:flex-row items-center gap-3">
+          <div className="w-full py-2 border-b border-gray-300 flex items-center gap-2">
+            <MdAttachMoney className="text-2xl text-gray-700" />
+            <input
+              type="number"
+              required
+              value={price}
+              placeholder="Precio"
+              className="w-full h-full text-lg bg-transparent outline-none border-none placeholder:text-gray-400 text-textColor"
+              onChange={(e) => setPrice(e.target.value)}
+            />
+          </div>
+        </div>
+        <div className="flex items-center w-full">
+          <button
+            type="button"
+            className="ml-0 md:ml-auto w-full md:w-auto border-none outline-none bg-[#023e8a] px-12 py-2 rounded-lg text-lg text-white hover:text-[#023e8a] duration-300 transition-all ease-in-out hover:bg-transparent"
+            onClick={saveDetails}
+          >Guardar</button>
         </div>
       </div>
     </div>
