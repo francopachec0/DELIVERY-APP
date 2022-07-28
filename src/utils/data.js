@@ -2,6 +2,14 @@ import Food1 from "../assets/comida1.png";
 import Food2 from "../assets/comida2.png";
 import Food3 from "../assets/comida3.png";
 import Food4 from "../assets/comida4.png";
+import {
+  GiChickenOven,
+  GiDoubleFish,
+  GiBowlOfRice,
+  GiFruitBowl,
+  GiIceCreamCone,
+} from "react-icons/gi";
+import { BiDrink } from "react-icons/bi";
 
 export const FoodList = [
   {
@@ -35,36 +43,64 @@ export const categories = [
     id: 1,
     name: "Pollo",
     urlParamName: "pollo",
+    icon: (
+      <GiChickenOven
+        size={24}
+        className="text-white group-hover:text-[#023e8a]"
+      />
+    ),
   },
   {
     id: 2,
-    name: "Curry",
-    urlParamName: "curry",
+    name: "Arroz",
+    urlParamName: "arroz",
+    icon: (
+      <GiBowlOfRice
+        size={24}
+        className="text-white group-hover:text-[#023e8a]"
+      />
+    ),
   },
   {
     id: 3,
-    name: "Arroz",
-    urlParamName: "arroz",
+    name: "Pescado",
+    urlParamName: "pescado",
+    icon: (
+      <GiDoubleFish
+        size={24}
+        className="text-white group-hover:text-[#023e8a]"
+      />
+    ),
   },
   {
     id: 4,
-    name: "Pescado",
-    urlParamName: "pescado",
+    name: "Frutas",
+    urlParamName: "frutas",
+    icon: (
+      <GiFruitBowl
+        size={24}
+        className="text-white group-hover:text-[#023e8a]"
+      />
+    ),
   },
   {
     id: 5,
-    name: "Frutas",
-    urlParamName: "frutas",
-  },
-  {
-    id: 6,
     name: "Helados",
     urlParamName: "helados",
+    icon: (
+      <GiIceCreamCone
+        size={24}
+        className="text-white group-hover:text-[#023e8a]"
+      />
+    ),
   },
 
   {
-    id: 7,
+    id: 6,
     name: "Bebidas",
     urlParamName: "bebidas",
+    icon: (
+      <BiDrink size={24} className="text-white group-hover:text-[#023e8a]" />
+    ),
   },
 ];

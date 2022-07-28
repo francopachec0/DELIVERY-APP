@@ -10,6 +10,7 @@ import { actionType } from "./context/reducer";
 
 function App() {
 
+  // eslint-disable-next-line
   const [{ foodItems }, dispatch] = useStateValue();
 
   const fetchData = async () => {
@@ -22,8 +23,10 @@ function App() {
     });
   };
 
+  
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line
   }, []);
   
   return (

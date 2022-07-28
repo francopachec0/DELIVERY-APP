@@ -7,6 +7,7 @@ import { useStateValue } from "../context/StateProvider";
 import MenuContainer from "./MenuContainer";
 
 const MainContainer = () => {
+  // eslint-disable-next-line
   const [{ foodItems }, dispatch] = useStateValue();
 
   const [scrollValue, setScrollValue] = useState(0);
@@ -25,14 +26,14 @@ const MainContainer = () => {
             <motion.div
               whileTap={{ scale: 0.75 }}
               className="w-8 h-8 rounded-lg bg-[#246cca] hover:bg-[#023e8a] cursor-pointer transition-all duration-100 ease-in-out hover:shadow-lg flex justify-center items-center"
-              onClick={() => setScrollValue(-200)}
+              onClick={() => setScrollValue(-630)}
             >
               <MdChevronLeft size={20} className="text-base text-white" />
             </motion.div>
             <motion.div
               whileTap={{ scale: 0.75 }}
               className="w-8 h-8 rounded-lg bg-[#246cca] hover:bg-[#023e8a] cursor-pointer transition-all duration-100 ease-in-out hover:shadow-lg flex justify-center items-center"
-              onClick={() => setScrollValue(200)}
+              onClick={() => setScrollValue(630)}
             >
               <MdChevronRight size={20} className="text-base text-white" />
             </motion.div>
