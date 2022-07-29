@@ -14,7 +14,7 @@ const Header = () => {
   const firebaseAuth = getAuth(app);
   const provider = new GoogleAuthProvider();
 
-  const [{ user }, dispatch] = useStateValue();
+  const [{ user, cartShow, cartItems }, dispatch] = useStateValue();
 
   const [isMenu, setIsMenu] = useState(false);
 
@@ -40,6 +40,14 @@ const Header = () => {
     dispatch({
       type: actionType.SET_USER,
       user: null,
+    });
+  };
+
+  const showCart = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: actionType.SET_CART_SHOW,
+      cartShow: !cartShow,
     });
   };
 
@@ -76,14 +84,21 @@ const Header = () => {
               Contacto
             </li>
           </motion.ul>
-          <div className="relative flex justify-center items-center">
+          <div
+            onClick={showCart}
+            className="relative flex justify-center items-center"
+          >
             <MdShoppingCart
               size={24}
               className="text-textColor cursor-pointer"
             />
-            <div className="absolute -top-2 -right-5 w-5 h-5 bg-[#023e8a] rounded-full flex items-center justify-center">
-              <p className="text-xs text-white font-semibold">2</p>
-            </div>
+            {cartItems && cartItems.length > 0 && (
+              <div className=" absolute -top-2 -right-2 w-5 h-5 rounded-full bg-[#023e8a] flex items-center justify-center">
+                <p className="text-xs text-white font-semibold">
+                  {cartItems.length}
+                </p>
+              </div>
+            )}
           </div>
           <div className="relative">
             <motion.img
@@ -103,7 +118,10 @@ const Header = () => {
               >
                 {user && user.email === "francopacheco.dev@gmail.com" && (
                   <Link to={"/createItem"}>
-                    <p className="px-4 py-2 flex items-center gap-3 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer" onClick={() => setIsMenu(false)}>
+                    <p
+                      className="px-4 py-2 flex items-center gap-3 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer"
+                      onClick={() => setIsMenu(false)}
+                    >
                       Nuevo Producto <MdAdd size={30} />
                     </p>
                   </Link>
@@ -121,11 +139,18 @@ const Header = () => {
       </div>
       {/* -------------------------------------- mobile ------------------------------------------------ */}
       <div className="flex items-center justify-between md:hidden w-full h-full">
-        <div className="relative flex justify-center items-center">
+        <div
+          onClick={showCart}
+          className="relative flex justify-center items-center"
+        >
           <MdShoppingCart size={26} className="text-textColor cursor-pointer" />
-          <div className="absolute -top-2 -right-5 w-5 h-5 bg-[#023e8a] rounded-full flex items-center justify-center">
-            <p className="text-xs text-white font-semibold">2</p>
-          </div>
+          {cartItems && cartItems.length > 0 && (
+            <div className=" absolute -top-2 -right-2 w-5 h-5 rounded-full bg-[#023e8a] flex items-center justify-center">
+              <p className="text-xs text-white font-semibold">
+                {cartItems.length}
+              </p>
+            </div>
+          )}
         </div>
         <Link to={"/"} className="flex items-center gap-2">
           <motion.img
@@ -154,23 +179,38 @@ const Header = () => {
             >
               {user && user.email === "francopacheco.dev@gmail.com" && (
                 <Link to={"/createItem"}>
-                  <p className="rounded-md px-4 py-2 justify-center bg-slate-200 flex items-center gap-3 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer" onClick={() => setIsMenu(false)}>
+                  <p
+                    className="rounded-md px-4 py-2 justify-center bg-slate-200 flex items-center gap-3 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer"
+                    onClick={() => setIsMenu(false)}
+                  >
                     Nuevo Producto <MdAdd size={20} />
                   </p>
                 </Link>
               )}
 
               <ul className="flex flex-col">
-                <li className=" px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer " onClick={() => setIsMenu(false)}>
+                <li
+                  className=" px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer "
+                  onClick={() => setIsMenu(false)}
+                >
                   <Link to={"/"}>Inicio</Link>
                 </li>
-                <li className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer " onClick={() => setIsMenu(false)}>
+                <li
+                  className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer "
+                  onClick={() => setIsMenu(false)}
+                >
                   Menú
                 </li>
-                <li className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer " onClick={() => setIsMenu(false)}>
+                <li
+                  className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer "
+                  onClick={() => setIsMenu(false)}
+                >
                   Sobre Nosotros
                 </li>
-                <li className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer " onClick={() => setIsMenu(false)}>
+                <li
+                  className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer "
+                  onClick={() => setIsMenu(false)}
+                >
                   Contacto
                 </li>
               </ul>

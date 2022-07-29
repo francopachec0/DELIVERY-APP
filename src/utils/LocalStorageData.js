@@ -5,3 +5,12 @@ export const getUser = () => {
       : localStorage.clear();
   return userInfo;
 };
+
+export const getCart = () => {
+  const cartInfo =
+    localStorage.getItem("cartItems") !== "undefined"
+      ? JSON.parse(localStorage.getItem("cartItems"))
+      : localStorage.clear();
+
+  return cartInfo ? cartInfo : [];
+};
