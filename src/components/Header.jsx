@@ -3,12 +3,13 @@ import Logo from "../assets/logo.png";
 import User from "../assets/avatar.png";
 import { MdShoppingCart, MdAdd, MdLogout } from "react-icons/md";
 import { motion } from "framer-motion";
-import { Link } from 'react-scroll';
+
 
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../firebase.config";
 import { useStateValue } from "../context/StateProvider";
 import { actionType } from "../context/reducer";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const firebaseAuth = getAuth(app);
@@ -55,7 +56,7 @@ const Header = () => {
     <header className="fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16 bg-primary">
       {/* ---------------------------------- desktop and tablet --------------------------------------- */}
       <div className="hidden md:flex w-full h-full items-center justify-between">
-        <Link to={"/"} className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <motion.img
             src={Logo}
             alt="logo"
@@ -72,10 +73,10 @@ const Header = () => {
             className="flex items-center gap-8"
           >
             <li className="text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
-              <Link to="inicio" smooth={true} duration={500}>Inicio</Link>
+              <Link to={'/'}>Inicio</Link>
             </li>
             <li className="text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
-            <Link to='menu' smooth={true} duration={500}>Menú</Link>
+            <Link to={'/menu'}>Menú</Link>
             </li>
             <li className="text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
               Sobre Nosotros
@@ -193,13 +194,13 @@ const Header = () => {
                   className=" px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer "
                   onClick={() => setIsMenu(false)}
                 >
-                  <Link to="inicio" smooth={true} duration={500}>Inicio</Link>
+                  <Link to={"/"}>Inicio</Link>
                 </li>
                 <li
                   className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer "
                   onClick={() => setIsMenu(false)}
                 >
-                  <Link to='menu' smooth={true} duration={500}>Menú</Link>
+                  Menú
                 </li>
                 <li
                   className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer "
