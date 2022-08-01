@@ -6,4 +6,4 @@ export { default as Loader } from "./Loader";
 export { default as RowContainer } from "./RowContainer";
 export { default as MenuContainer } from "./MenuContainer";
 export { default as CartConteiner } from "./CartConteiner";
-export { default as CartItems } from "./CartItems";
+export { default as CartItem } from "./CartItem";

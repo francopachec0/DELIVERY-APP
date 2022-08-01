@@ -9,3 +9,5 @@ export const initialState = {
   cartShow: false,
   cartItems: cartInfo,
 };
+
+console.log(initialState.cartItems);

@@ -12,5 +12,7 @@ export const getCart = () => {
       ? JSON.parse(localStorage.getItem("cartItems"))
       : localStorage.clear();
 
+      //console.log(cartInfo)
   return cartInfo ? cartInfo : [];
 };
+
