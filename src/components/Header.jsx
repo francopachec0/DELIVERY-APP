@@ -3,7 +3,7 @@ import Logo from "../assets/logo.png";
 import User from "../assets/avatar.png";
 import { MdShoppingCart, MdAdd, MdLogout } from "react-icons/md";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link } from 'react-scroll';
 
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { app } from "../firebase.config";
@@ -72,10 +72,10 @@ const Header = () => {
             className="flex items-center gap-8"
           >
             <li className="text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
-              <Link to={"/"}>Inicio</Link>
+              <Link to="inicio" smooth={true} duration={500}>Inicio</Link>
             </li>
             <li className="text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
-              Menú
+            <Link to='menu' smooth={true} duration={500}>Menú</Link>
             </li>
             <li className="text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer ">
               Sobre Nosotros
@@ -193,13 +193,13 @@ const Header = () => {
                   className=" px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer "
                   onClick={() => setIsMenu(false)}
                 >
-                  <Link to={"/"}>Inicio</Link>
+                  <Link to="inicio" smooth={true} duration={500}>Inicio</Link>
                 </li>
                 <li
                   className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer "
                   onClick={() => setIsMenu(false)}
                 >
-                  Menú
+                  <Link to='menu' smooth={true} duration={500}>Menú</Link>
                 </li>
                 <li
                   className="px-4 py-2 text-base text-textColor hover:text-[#023e8a] duration-100 transition-all ease-in-out cursor-pointer "
