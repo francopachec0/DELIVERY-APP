@@ -10,4 +10,4 @@ export const initialState = {
   cartItems: cartInfo,
 };
 
-console.log(initialState.cartItems);
+//console.log(initialState.cartItems);
